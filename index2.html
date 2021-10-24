@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyboardEvent - Keys Combinations</title>
+  </head>
+  <body>
+    <p>Press D and A Togheter on Keyboard!</p>
+  </body>
+  <script>
+    function runDoubleKeys(func, ...codes) {
+      let pressed = new Set()
+      document.addEventListener('keydown', event => {
+        pressed.add(event.code)
+        console.log(event.code) // mostra no console as teclas pressionadas
+        for (let code of codes)
+          if (!pressed.has(code)) {
+            return
+          }
+        pressed.clear()
+        func()
+      })
+      document.addEventListener('keyup', event => pressed.delete(event.code))
+    }
+    runDoubleKeys(() => alert('Double Keys Combination!'), 'KeyA', 'KeyD')
+  </script>
+</html>

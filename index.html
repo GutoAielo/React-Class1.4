@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyboardEvent - Keydown/Keyup</title>
+  </head>
+  <body>
+    <p>Example of Input Event</p>
+    <br />
+    Text: <input type="text" id="a" value="" />
+  </body>
+  <script>
+    let inp = document.getElementById('a')
+
+    inp.addEventListener('keydown', funcKeyDown, false)
+    inp.addEventListener('keyup', funcKeyUp, false)
+
+    function funcKeyDown(event) {
+      event.target.style.background = 'lightblue'
+    }
+    function funcKeyUp(event) {
+      event.target.style.background = 'white'
+    }
+  </script>
+</html>
